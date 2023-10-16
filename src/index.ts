@@ -17,6 +17,8 @@ export const plugin: PluginFunction<TypedFilesModulesConfig> = (
     stripPrefix = "",
     typedDocumentNodeModule = "@graphql-typed-document-node/core",
     excludeDefaultExports,
+    operationResultSuffix = null,
+    useOperationNameAsSuffix = false,
   }
 ) => {
   const config = {
@@ -26,6 +28,8 @@ export const plugin: PluginFunction<TypedFilesModulesConfig> = (
     prefix,
     stripPrefix,
     typedDocumentNodeModule,
+    operationResultSuffix,
+    useOperationNameAsSuffix,
   };
 
   const output: string[] = [];

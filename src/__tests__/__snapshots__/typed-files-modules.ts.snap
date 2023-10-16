@@ -3,63 +3,85 @@
 exports[`typed-files-modules module path customization wildcards the basename by default 1`] = `
 "declare module \\"*/authors.gql\\" {
   import { TypedDocumentNode } from \\"docnode\\";
-  import { AuthorsQuery, AuthorsQueryVariables } from \\"@codegen-types\\";
-  export const authors: TypedDocumentNode<AuthorsQuery, AuthorsQueryVariables>;
+  import { Authors, AuthorsVariables } from \\"@codegen-types\\";
+  export const authors: TypedDocumentNode<Authors, AuthorsVariables>;
   export default authors;
 }
 
 declare module \\"*/createAuthor.gql\\" {
   import { TypedDocumentNode } from \\"docnode\\";
-  import { CreateAuthorMutation, CreateAuthorMutationVariables } from \\"@codegen-types\\";
-  export const createAuthor: TypedDocumentNode<CreateAuthorMutation, CreateAuthorMutationVariables>;
+  import { CreateAuthor, CreateAuthorVariables } from \\"@codegen-types\\";
+  export const createAuthor: TypedDocumentNode<CreateAuthor, CreateAuthorVariables>;
   export default createAuthor;
+}
+
+declare module \\"*/authorFragment.gql\\" {
+  import { TypedDocumentNode } from \\"docnode\\";
+  import { AuthorFragment as _AuthorFragment } from \\"@codegen-types\\";
+  export const authorFragment: TypedDocumentNode<_AuthorFragment>;
+  export default authorFragment;
 }"
 `;
 
 exports[`typed-files-modules should have ambient module declarations for each document 1`] = `
 "declare module \\"*/authors.gql\\" {
   import { TypedDocumentNode } from \\"docnode\\";
-  import { AuthorsQuery, AuthorsQueryVariables } from \\"@codegen-types\\";
-  export const authors: TypedDocumentNode<AuthorsQuery, AuthorsQueryVariables>;
+  import { Authors, AuthorsVariables } from \\"@codegen-types\\";
+  export const authors: TypedDocumentNode<Authors, AuthorsVariables>;
   export default authors;
 }
 
 declare module \\"*/createAuthor.gql\\" {
   import { TypedDocumentNode } from \\"docnode\\";
-  import { CreateAuthorMutation, CreateAuthorMutationVariables } from \\"@codegen-types\\";
-  export const createAuthor: TypedDocumentNode<CreateAuthorMutation, CreateAuthorMutationVariables>;
+  import { CreateAuthor, CreateAuthorVariables } from \\"@codegen-types\\";
+  export const createAuthor: TypedDocumentNode<CreateAuthor, CreateAuthorVariables>;
   export default createAuthor;
+}
+
+declare module \\"*/authorFragment.gql\\" {
+  import { TypedDocumentNode } from \\"docnode\\";
+  import { AuthorFragment as _AuthorFragment } from \\"@codegen-types\\";
+  export const authorFragment: TypedDocumentNode<_AuthorFragment>;
+  export default authorFragment;
 }"
 `;
 
 exports[`typed-files-modules should not have default exports for multiple operations 1`] = `
 "declare module \\"*/authors.gql\\" {
   import { TypedDocumentNode } from \\"docnode\\";
-  import { AuthorsQuery, AuthorsQueryVariables } from \\"@codegen-types\\";
-  export const authors: TypedDocumentNode<AuthorsQuery, AuthorsQueryVariables>;
-  import { AlsoAuthorsQuery, AlsoAuthorsQueryVariables } from \\"@codegen-types\\";
-  export const alsoAuthors: TypedDocumentNode<AlsoAuthorsQuery, AlsoAuthorsQueryVariables>;
+  import { Authors, AuthorsVariables } from \\"@codegen-types\\";
+  export const authors: TypedDocumentNode<Authors, AuthorsVariables>;
+  import { AlsoAuthors, AlsoAuthorsVariables } from \\"@codegen-types\\";
+  export const alsoAuthors: TypedDocumentNode<AlsoAuthors, AlsoAuthorsVariables>;
+  import { AuthorFragment as _AuthorFragment } from \\"@codegen-types\\";
+  export const authorFragment: TypedDocumentNode<_AuthorFragment>;
 }
 
 declare module \\"*/createAuthor.gql\\" {
   import { TypedDocumentNode } from \\"docnode\\";
-  import { CreateAuthorMutation, CreateAuthorMutationVariables } from \\"@codegen-types\\";
-  export const createAuthor: TypedDocumentNode<CreateAuthorMutation, CreateAuthorMutationVariables>;
-  import { AlsoCreateAuthorMutation, AlsoCreateAuthorMutationVariables } from \\"@codegen-types\\";
-  export const alsoCreateAuthor: TypedDocumentNode<AlsoCreateAuthorMutation, AlsoCreateAuthorMutationVariables>;
+  import { CreateAuthor, CreateAuthorVariables } from \\"@codegen-types\\";
+  export const createAuthor: TypedDocumentNode<CreateAuthor, CreateAuthorVariables>;
+  import { AlsoCreateAuthor, AlsoCreateAuthorVariables } from \\"@codegen-types\\";
+  export const alsoCreateAuthor: TypedDocumentNode<AlsoCreateAuthor, AlsoCreateAuthorVariables>;
 }"
 `;
 
 exports[`typed-files-modules should not have default exports if specifically excluded 1`] = `
 "declare module \\"*/authors.gql\\" {
   import { TypedDocumentNode } from \\"docnode\\";
-  import { AuthorsQuery, AuthorsQueryVariables } from \\"@codegen-types\\";
-  export const authors: TypedDocumentNode<AuthorsQuery, AuthorsQueryVariables>;
+  import { Authors, AuthorsVariables } from \\"@codegen-types\\";
+  export const authors: TypedDocumentNode<Authors, AuthorsVariables>;
 }
 
 declare module \\"*/createAuthor.gql\\" {
   import { TypedDocumentNode } from \\"docnode\\";
-  import { CreateAuthorMutation, CreateAuthorMutationVariables } from \\"@codegen-types\\";
-  export const createAuthor: TypedDocumentNode<CreateAuthorMutation, CreateAuthorMutationVariables>;
+  import { CreateAuthor, CreateAuthorVariables } from \\"@codegen-types\\";
+  export const createAuthor: TypedDocumentNode<CreateAuthor, CreateAuthorVariables>;
+}
+
+declare module \\"*/authorFragment.gql\\" {
+  import { TypedDocumentNode } from \\"docnode\\";
+  import { AuthorFragment as _AuthorFragment } from \\"@codegen-types\\";
+  export const authorFragment: TypedDocumentNode<_AuthorFragment>;
 }"
 `;

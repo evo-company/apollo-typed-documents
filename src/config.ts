@@ -40,9 +40,18 @@ export type TypedFilesModulesConfig = {
    */
   excludeDefaultExports?: boolean;
 
-  // TODO: match typescript naming options
-  // https://github.com/dotansimha/graphql-code-generator/blob/master/packages/plugins/other/visitor-plugin-common/src/base-visitor.ts
-  // - namingConvention
-  // - typesPrefix
-  // - typesSuffix
+  /**
+   * @default undefined
+   * @description Add suffix to generated operation result type names
+   * e.g we have operation name Author and suffix QueryType, we will get AuthorQueryType
+   */
+  operationResultSuffix?: string | null;
+
+  /**
+   * @default false
+   * @description use operation name as suffix
+   * e.g we have operation query Author, we will get AuthorQuery
+   * e.g we have operation mutation Author? we will get AuthorMutation
+   */
+  useOperationNameAsSuffix?: boolean;
 };

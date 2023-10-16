@@ -66,20 +66,31 @@ const singleOpDocuments = [
       }
     `),
   },
+  {
+    location: "authorFragment.gql",
+    document: parse(`
+      fragment authorFragment on Author {
+        idField
+      }
+    `),
+  },
 ];
 
 const multiOpDocuments = [
   {
     location: "authors.gql",
     document: parse(`
+      fragment authorFragment on Author {
+        idField
+      }
       query authors {
         authors {
-          idField
+          ...authorFragment
         }
       }
       query alsoAuthors {
         authors {
-          idField
+          ...authorFragment
         }
       }
     `),
@@ -105,7 +116,6 @@ describe("typed-files-modules", () => {
   it("should not have any output when there are no documents", async () => {
     const config = getConfig();
     const output = await codegen(config);
-
     expect(output).toMatchInlineSnapshot(`""`);
   });
 
@@ -207,6 +217,47 @@ describe("typed-files-modules", () => {
       expect(output).toEqual(
         expect.stringContaining(
           `import { TypedDocumentNode } from "@apollo/client";`
+        )
+      );
+    });
+  });
+
+  describe("check suffix settings", () => {
+    it("should import graph node with suffix", async () => {
+      const config = getConfig(
+        { documents: singleOpDocuments },
+        { operationResultSuffix: "Type" }
+      );
+
+      const output = await codegen(config);
+      expect(output).toEqual(
+        expect.stringContaining(
+          `import { AuthorsType, AuthorsVariables } from "@codegen-types";`
+        )
+      );
+    });
+    // this test case test previous default functionality
+    it("should import graph node that use operation name as suffix", async () => {
+      const config = getConfig(
+        { documents: singleOpDocuments },
+        { useOperationNameAsSuffix: true }
+      );
+
+      const output = await codegen(config);
+      expect(output).toEqual(
+        expect.stringContaining(
+          `import { AuthorsQuery, AuthorsQueryVariables } from "@codegen-types";`
+        )
+      );
+    });
+
+    it("should import graph node without any suffix", async () => {
+      const config = getConfig({ documents: singleOpDocuments });
+
+      const output = await codegen(config);
+      expect(output).toEqual(
+        expect.stringContaining(
+          `import { Authors, AuthorsVariables } from "@codegen-types";`
         )
       );
     });
