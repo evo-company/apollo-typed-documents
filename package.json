@@ -1,18 +1,18 @@
 {
-  "name": "apollo-typed-documents",
-  "version": "3.0.0",
+  "name": "@evo/apollo-typed-documents",
+  "version": "1.0.0",
   "description": "Get type safety for your apollo documents.",
   "keywords": [
     "apollo",
     "graphql",
     "codegen"
   ],
-  "homepage": "https://github.com/dleavitt/apollo-typed-documents",
+  "homepage": "https://github.com/evo-company/apollo-typed-documents",
   "repository": {
-    "url": "https://github.com/dleavitt/apollo-typed-documents",
+    "url": "https://github.com/evo-company/apollo-typed-documents",
     "type": "git"
   },
-  "author": "Ruben Grill <ruben@purelabs.io>",
+  "author": "stoyanov.k1992@gmail.com",
   "license": "MIT",
   "main": "lib/index.js",
   "files": [
